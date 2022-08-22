@@ -6,7 +6,6 @@ public class Weapon_BareHands extends SuperWeapon
     {
         name = "Bare Hands";
         damage = 1;
-        range = 1;
     }
 }
 

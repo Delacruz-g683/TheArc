@@ -6,6 +6,5 @@ public class Weapon_Knife extends SuperWeapon
     {
         name = "Knife";
         damage = 3;
-        range = 1;
     }
 }

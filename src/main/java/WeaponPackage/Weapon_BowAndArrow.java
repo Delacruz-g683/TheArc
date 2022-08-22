@@ -7,7 +7,6 @@ public class Weapon_BowAndArrow extends SuperWeapon
         {
             name = "Bow and Arrow";
             damage = 3;
-            range = 5;
         }
 
 }
