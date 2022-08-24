@@ -192,6 +192,21 @@ public class JourneyThroughCelestia
         //boss should deal significantly more dmg compared to the other monsters. maybe X2 or X3?
     } //Dungeon Story.
 
+    public void TheMinesOfInsertMonsterNameHere()
+    {
+        gui.mainTextArea.setText("The mines are a dark, treacherous and unforgiving place, " +
+                "but greed is something that resides in every man.");
+        gui.selection1.setText("Path to the left");
+        gui.selection2.setText("Take the torch and move further through the entrance of the mine.");
+        gui.selection3.setText("Look around");
+        gui.selection4.setText("Go back");
+
+        game.nextPosition1 = "Path to the left";
+        game.nextPosition2 = "Middle path"; // Path to boss
+        game.nextPosition3 = "Path to the right"; // The mines of insertNameOfDemonOrSomething
+        game.nextPosition4 = "whateverThePreviousPositionWasBeforeTheDungeon";
+    }
+
     public void TownSquare()
     {
         gui.mainTextArea.setText("You are in the centre of the town.There is a buzz and many people around selling and trading their goods and services. \n You can go to... ");
