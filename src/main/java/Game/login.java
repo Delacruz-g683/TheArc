@@ -7,18 +7,21 @@ import java.awt.event.ActionListener;
 
 public class login implements ActionListener {
     private JFrame frame;
-    private JPanel centerPanel, southPanel;
+    private JPanel panelCenter,panelNorth,panelWest,panelEast, panelSouth;
     private JLabel  usernameLbl, passwordLbl, cmbLbl;
     private  JTextField  usernameTxt, passwordTxt;
-    private JButton btnLogin, btnExit;
+    private JButton btnLogin,btnCreateAccount, btnExit;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font gameFont = new Font("Times New Roman", Font.PLAIN, 26);
 
     public login()
     {
         frame = new JFrame("Login");
-        centerPanel = new JPanel();
-        southPanel = new JPanel();
+        panelCenter = new JPanel();
+        panelNorth = new JPanel();
+        panelWest = new JPanel();
+        panelEast = new JPanel();
+        panelSouth = new JPanel();
 
         usernameLbl = new JLabel("Username");
         usernameLbl.setFont(gameFont);
@@ -26,35 +29,57 @@ public class login implements ActionListener {
         passwordLbl = new JLabel("Password");
         passwordLbl.setFont(gameFont);
         passwordTxt = new JTextField(20);
-        cmbLbl = new JLabel("Select user:");
+cmbLbl = new JLabel("Select user:");
         String[] options = {"User", "Role"};
-        btnLogin = new JButton("Login");
-        btnExit = new JButton("Exit");
+
+        btnLogin = new JButton("LOGIN");
+        btnCreateAccount = new JButton("CREATE ACCOUNT");
+        btnExit = new JButton("EXIT");
     }
 
-    public void setGUI() {
-        centerPanel.setLayout(new GridLayout(4, 1));
-        /*centerPanel.setBounds(250, 350, 300, 150);
-        centerPanel.setBackground(Color.black);*/
-        southPanel.setLayout(new FlowLayout());
+    public void setLoginGUI() {
+        panelCenter.setLayout(new GridLayout(4, 1));
+        panelNorth.setLayout(new GridLayout(2,1));
+        panelWest.setLayout(new GridLayout(1,1));
+        panelEast.setLayout(new GridLayout(1,1));
+        panelSouth.setLayout(new FlowLayout());
 
-        centerPanel.add(usernameLbl);
-        centerPanel.add(usernameTxt);
-        centerPanel.add(passwordLbl);
-        centerPanel.add(passwordTxt);
+        panelCenter.add(usernameLbl);
+        panelCenter.add(usernameTxt);
+        panelCenter.add(passwordLbl);
+        panelCenter.add(passwordTxt);
 
-        southPanel.add(btnLogin);
-        southPanel.add(btnExit);
+        panelSouth.add(btnLogin);
+        panelSouth.add(btnCreateAccount);
+        panelSouth.add(btnExit);
 
-        frame.add(centerPanel, BorderLayout.CENTER);
-        frame.add(southPanel, BorderLayout.SOUTH);
+        frame.getContentPane().add(panelNorth);
+        frame.getContentPane().add(panelEast);
+        frame.getContentPane().add(panelWest);
+        frame.getContentPane().add(panelCenter);
+        frame.getContentPane().add(panelSouth);
+
+        frame.add(panelCenter, BorderLayout.CENTER);
+        frame.add(panelCenter, BorderLayout.CENTER);
+        frame.add(panelWest, BorderLayout.WEST);
+        frame.add(panelEast, BorderLayout.EAST);
+        frame.add(panelSouth, BorderLayout.SOUTH);
+
+        frame.setLocation(100, 50);
+
+        panelNorth.setPreferredSize(new Dimension(50,100));
+        panelCenter.setPreferredSize(new Dimension(800,800));
+        panelWest.setPreferredSize(new Dimension(50,30));
+        panelEast.setPreferredSize(new Dimension(50,30));
+        panelSouth.setPreferredSize(new Dimension(30,50));
 
         btnLogin.addActionListener(this);
+        btnCreateAccount.addActionListener(this);
         btnExit.addActionListener(this);
 
         frame.setPreferredSize(new Dimension(800, 600));
-        // TODO: 2022/08/22 sort out the color scheme of the gui's    
-       /* frame.setBackground(Color.black);*/
+frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -62,7 +87,13 @@ public class login implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       /* if (e.getActionCommand().equals("Login")) {
+        if (e.getActionCommand().equals("CREATE ACCOUNT")) {
+
+            createAccountGui createaccountgui = new createAccountGui();
+            createaccountgui.setCreateAccountGui();
+
+            }
+ /*if (e.getActionCommand().equals("Login")) {
 
             String username = usernameTxt.getText();
             String password = passwordTxt.getText();
@@ -95,6 +126,6 @@ public class login implements ActionListener {
 
     public static void main(String[] args)
     {
-        new login().setGUI();
+        new login().setLoginGUI();
     }
 }
