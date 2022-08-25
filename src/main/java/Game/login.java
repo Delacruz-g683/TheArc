@@ -89,7 +89,8 @@ public class login implements ActionListener {
 
         } else if (e.getActionCommand().equals("Exit")) {
             System.exit(0);
-        }*/
+        }
+*/
     }
 
     public static void main(String[] args)
