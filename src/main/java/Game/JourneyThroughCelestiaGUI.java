@@ -1,34 +1,36 @@
+
 package Game;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class theScarletHeroinGui {
-        JFrame frame;
-        JPanel mainTextPanel, selectionButtonPanel, playerPanel;
-        JLabel hpLabel, hpNumberLabel, weaponLabel, weaponNameLabel;
-        JButton selection1, selection2, selection3, selection4;
-        JTextArea mainTextArea;
-        Font gameFont = new Font("Times New Roman", Font.PLAIN, 26);
+public class JourneyThroughCelestiaGUI {
+    JFrame frame;
+    JPanel mainTextPanel, selectionButtonPanel, playerPanel;
+    JLabel hpLabel, hpNumberLabel, weaponLabel, weaponNameLabel;
+    JButton selection1, selection2, selection3, selection4;
+    JTextArea mainTextArea;
+    Font gameFont = new Font("Times New Roman", Font.PLAIN, 26);
 
-        public theScarletHeroinGui() {
+    public JourneyThroughCelestiaGUI()
+    {
         frame = new JFrame();
         frame.setSize(800, 600);
         mainTextPanel = new JPanel();
         mainTextArea = new JTextArea("Add text here...");
         selectionButtonPanel = new JPanel();
-        selection1 = new JButton("Go to St Mary's Town");
-        selection2 = new JButton("HeroinChoice2");
-        selection3 = new JButton("HeroinChoice3");
-        selection4 = new JButton("HeroinChoice4");
+        selection1 = new JButton("");
+        selection2 = new JButton("");
+        selection3 = new JButton("");
+        selection4 = new JButton("");
         playerPanel = new JPanel();
         hpLabel = new JLabel("HP:");
         hpNumberLabel = new JLabel();
         weaponLabel = new JLabel("Weapon:");
         weaponNameLabel = new JLabel();
-       }
+    }
 
-       public void setTheScarletHeroinGui(TheScarletHeroinGame.SelectionHandler sHandler){
+    public void setJourneyThroughCelestia(JourneyThroughCelestiaGame.SelectionHandler sHandler){
         mainTextPanel.setBounds(100, 100, 600, 250);
         mainTextPanel.setBackground(Color.black);
 
@@ -50,7 +52,7 @@ public class theScarletHeroinGui {
         selection1.setFont(gameFont);
         selection1.setFocusPainted(false);
         selection1.addActionListener(sHandler);
-        selection1.setActionCommand("Go to St Mary's Town");
+        selection1.setActionCommand("CelestiaChoice1");
         selectionButtonPanel.add(selection1);
 
         selection2.setBackground(Color.darkGray);
@@ -58,7 +60,7 @@ public class theScarletHeroinGui {
         selection2.setFont(gameFont);
         selection2.setFocusPainted(false);
         selection2.addActionListener(sHandler);
-        selection2.setActionCommand("HeroinChoice2");
+        selection2.setActionCommand("CelestiaChoice2");
         selectionButtonPanel.add(selection2);
 
         selection3.setBackground(Color.darkGray);
@@ -66,7 +68,7 @@ public class theScarletHeroinGui {
         selection3.setFont(gameFont);
         selection3.setFocusPainted(false);
         selection3.addActionListener(sHandler);
-        selection3.setActionCommand("HeroinChoice3");
+        selection3.setActionCommand("CelestiaChoice3");
         selectionButtonPanel.add(selection3);
 
         selection4.setBackground(Color.darkGray);
@@ -74,7 +76,7 @@ public class theScarletHeroinGui {
         selection4.setFont(gameFont);
         selection4.setFocusPainted(false);
         selection4.addActionListener(sHandler);
-        selection4.setActionCommand("HeroinChoice4");
+        selection4.setActionCommand("CelestiaChoice4");
         selectionButtonPanel.add(selection4);
 
         playerPanel.setBounds(100, 15, 600, 50);
@@ -105,6 +107,8 @@ public class theScarletHeroinGui {
         frame.getContentPane().setBackground(Color.black);
         frame.setLayout(null);
         frame.setVisible(true);
-       }
+    }
 
 }
+
+

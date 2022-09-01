@@ -1,7 +1,16 @@
-/*
 package Game;
 
+import Weapon.Weapon_BareHands;
+
 public class theScarletHeroin {
+    theScarletHeroinGui gui;
+    TheScarletHeroinGame game;
+
+    public theScarletHeroin( TheScarletHeroinGame g, theScarletHeroinGui UI)
+    {
+        game = g;
+        gui =UI;
+    }
 
     public void defaultSetup()
     {
@@ -31,17 +40,15 @@ public class theScarletHeroin {
             case "Volcanous The Forgotten Volcano":ForgottenVolcano(); break;
             case "Lord V's Castle":LordVCastle(); break;
 
-
-
         }
     }
 
     public void VillageHome()
     {
-        gui.mainTextArea.setText("The Into Story Line" +
-                "\n " +
-                "\n " +
-                "\n ");
+        gui.mainTextArea.setText("Your village has been ransacked by villains. " +
+                "\n And your family has been kidnapped by the malicious Lord V!"+
+                "\n You are the only one that can save them." +
+                "\n You will need to go to St Mary's Town to find your 1st clue.");
 
         gui.selection1.setText("Go to St Mary's Town");
         gui.selection2.setText(" ");
@@ -51,27 +58,19 @@ public class theScarletHeroin {
         game.nextPosition1 = "St Marys Town";
         game.nextPosition2 = " ";
         game.nextPosition3 = " ";
-        game.nextPosition4 = " ";
-
+        game.nextPosition4  = " ";
     }
-
-
 
     public void StMarysTown()
     {
-        gui.mainTextArea.setText("This is the town your 1st brother was last seen. He had come to ths small town to find weapons in order to defeat the evil Lord V." +
-                "\n There are 3 weapon stores in the town. The 1st store is not operational. But outside the store is a vender selling some food. You ask the vender about the closed store: " +
-                "\n You/Scarlet: Pardon me, may I ask if this store is still open?" +
-                "\n Vender: No dear. This store closed down days ago." +
-                "\n You/Scarlet: Oh, okay. (sounding a little disappointed) Do you perhaps know where I can find another weapons store?" +
-                "\n Vender: Indeed I do. There are 2 weapons stores in the town. One is down the road, the other is in an area not suited for a young lady." +
-                "\n The vender gives you the directions to the 2nd weapons store in town, but was too hesitant to give you the 3rd one." +
-                "\n You/Scarlet: Thank you for the assistance. I will be on my way now." +
-                "\n It is up to you to decide what to do next");
+        gui.mainTextArea.setText(" One of the villains where spotted in this town. But first you need weapons!"+
+                "\n There are 3 weapon stores in town. Unfortunately, one of them has closed down." +
+                "\n The other 2 stores are still open."+
+                "\n Where will you go next");
 
         gui.selection1.setText("Go back to the village/home");
         gui.selection2.setText("Go to the 2nd store");
-        gui.selection3.setText("Ask the vender for the 3rd stores location");
+        gui.selection3.setText("  ");
         gui.selection4.setText(" ");
 
         game.nextPosition1 = "VillageHome";  //goes home
@@ -82,57 +81,31 @@ public class theScarletHeroin {
 
     public void StMarysTownStore2()
     {
-        gui.mainTextArea.setText("After following the venders directions, you find the 2nd store.Upon entering, you are greeted with a burnt metallic scent. Weapons covering almost every inch of the store wall." +
-                "\n After browsing through the store, you head towards the pay counter. Where a tall, ashy looking man stands" +
-                "\n Man: This is no place for a lady! (with a look of distaste on his face)" +
-                "\n Man: What do you want here girl?! " +
-                "\n You/Scarlet: I'm looking for a weapon." +
-                "\n Man: A weapon Huh? What kind of weapon would a pretty little thing like you be looking for? (As he looks you up and down as if to assess your frame)" +
-                "\n You/Scarlet: I need a strong weapon. One that can kill, destroy and defeat anything. A weapon fit for a warrior! (Passion and conviction in your voice)" +
-                "\n Man: I may have the weapon you seek, but Such a weapon will cost you quite a bit. You might not have the gold for to purchase it " +
-                "\n You/Scarlet: Don't worry, I have enough gold. I would like to purchase the weapon from you. (Taking out your coin sack, filled with gold coins.)" +
-                "\n The man notices you taking out your gold and he retrieves the the weapon for you" +
-                "\n Man: This is the SWORD OF VALOUR. A weapon forged to concur! A weapon made for a True Warrior! (Pride filled his voice)" +
-                "\n Man: In order to safely wield this sword, you will need the attire made for endurance. The Armor of something..." +
-                "\n You/Scarlet: I will purchase the amor as well." +
-                "\n Man: The armor I do not have, I know where you may find it. But! Beware of this store, it is not a place of safety. " +
-                "\n The man hands you the Sword of Valour and directs you to the 3rd store.");
+        gui.mainTextArea.setText(" You arrive at the 2nd weapon store. A tall, ashy looking man standing behind the counter asks if he can assist you."+
+                "\n You tell him that you are looking for a weapon to use to save your family." +
+                "\n He goes to the back room and brings back a weapon forged to concur. THE SWORD OF VALOUR."+
+                "\n You purchase the weapon with some gold." +
+                "\n The man informs you that inorder to wield the sword safely you will need THE ARMOR OF VALOUR, which he doesn't have."+
+                "\n THE ARMOR OF VALOUR was last seen in the 3rd store. What is your next step?");
 
         gui.selection1.setText("Head to the 3rd Store");
-        gui.selection2.setText("Go back to the village/home");
+        gui.selection2.setText("Go back to the village");
         gui.selection3.setText(" ");
         gui.selection4.setText(" ");
 
         game.nextPosition1 = "StMarysTown store3";
-        game.nextPosition2 = "VillageHome"; //goes home
+        game.nextPosition2 = "VillageHome";
         game.nextPosition3 = " ";
         game.nextPosition4 = " ";
     }
 
     public void StMarysTownStore3(){
 
-        gui.mainTextArea.setText("You follow the directions to the 3rd store" +
-                "\n You notice how the store is in a very secluded area. With scary and murderous looking men in every corner." +
-                "\n You finally find the store and  enter it." +
-                "\n You are immediately greeted with the smell of old dried animal skin. The smell of pure leather" +
-                "\n You don't bother browsing around the store. You go straight to the pay counter. Where a dark scrawny man stands" +
-                "\n You/Scarlet: Hello there. I would like to purchase some of your amor" +
-                "\n Man: Amor? What amor does a woman like you need? I do not have amor for women" +
-                "\n You/Scarlet: I am not looking for amor for women.I am looking amor fit for a warrior!" +
-                "\n Man: What amor might that be? (With a sarcastic tone to his voice)" +
-                "\n You/Scarlet: The Amor of something...!" +
-                "\n Man: What does a small woman like you want with the fortified Amor of something...? (as a full belly laugh leaves his cracked lips) " +
-                "\n So you tell him how your family was kidnapped and your intentions to save them." +
-                "\n After hearing your story the man seemed more attentive and alert to what you had to say." +
-                "\n He goes to a small room at the back of the store. While he is there, you hear him talking, whispering, to someone in a very suspicious manner"+
-                "\n The man finally returns to the counter with the Amor of Something..."+
-                "\n Man: How do you intend on paying for the amor? This amor does not come cheap."+
-                "\n You/Scarlet: I am certain I shall have enough gold for it. Worry not."+
-                "\n You proceed to pay for the amor, but as you are about to leave the store you notice how the man was now looking at you suspiciously."+
-                "\n Little did you know that the man was a spy for Lord V"+
-                "\n " +
-                "\n After the long doy you had, you realise that you are very tired and would do with some rest before continuing on with your journey." +
-                "\n You...");
+        gui.mainTextArea.setText("You arrive at the 3rd weapon store. A dark scrawny man standing behind the counter asks if he can assist you."+
+                "\n You tell him that you are looking for THE ARMOR OF VALOUR inorder to save your family." +
+                "\n The man suspiciously looks at you, but brings you the armor."+
+                "\n As you purchase the weapon with some gold, you get an unsafe feeling about the man." +
+                "\n You leave the store. It's been a long day and you are feeling a little tired...");
 
         gui.selection1.setText("Go to an Inn to Rest");
         gui.selection2.setText("Go back to the village");
@@ -143,55 +116,161 @@ public class theScarletHeroin {
         game.nextPosition2 = "VillageHome";
         game.nextPosition3 = " ";
         game.nextPosition4 = " ";
-
     }
 
     public void StMarysTownInn(){
 
-        gui.mainTextArea.setText("You pay for a room at the Inn so that you may sleep and get some rest." +
-                "\n While sleeping, you get startled awake by noise coming from the door of your room" +
-                "\n You realise that someone is trying to break into your room! So you quickly and quietly ready yourself to fight! " +
-                "\n The door finally gives way and the man sneaks into your room and closes the door." +
-                "\n BOMB!" +
-                "\n You hit the man on the back of his head. Rendering him unconscious." +
-                "\n It is the scrawny man from the 3rd store" +
-                "\n While he is unconscious, you tie his hands and feet together so that he can not escape while you question him." +
-                "\n A few minutes later he comes to." +
-                "\n You interrogate him,using your sword as a means of persuasion" +
-                "\n The man eventually tells you the information you need." +
-                "\n He gives you the location of your 1st brother");
+        gui.mainTextArea.setText("You get a room at the towns Inn to rest."+
+                "\n BANG!" +
+                "\n Someone breaks into your room. It's the scrawny man from the 3rd store!"+
+                "\n You quickly get up and hit the man unconscious. You tie him up to a chair and proceed to question him." +
+                "\n You find out that this man works for Lord V, and knows where one of your family members is being held." +
+                "\n The man tells you: To find your brother, you need to go through the Forbidden Forest");
 
-        gui.selection1.setText("Go back to the village/home");
-        gui.selection2.setText("Go to the 2nd store");
+        gui.selection1.setText("Go to: Forbidden Forest");
+        gui.selection2.setText("Go back to the village");
         gui.selection3.setText(" ");
         gui.selection4.setText(" ");
 
-        game.nextPosition1 = "villageHome";  //goes home
-        game.nextPosition2 = "StMarysTown store2";
-        game.nextPosition3 = "stMarysTown";
+        game.nextPosition1 = "ForbiddenForest";
+        game.nextPosition2 = "VillageHome";
+        game.nextPosition3 = " ";
         game.nextPosition4 = " ";
     }
 
     public void ForbiddenForest()
     {
-        gui.mainTextArea.setText("You enter the shop but have no money..");
-        gui.selection1.setText("Action Button");
-        gui.selection2.setText("Action Button ");
-        gui.selection3.setText("Action Button");
-        gui.selection4.setText("Action Button");
+        gui.mainTextArea.setText("You enter the Forbidden Forest. This Forest is a dark, cold and dangerous place to be. "+
+                "\n To get to Mystical Mountains, which is where your bother is, you need to go through the forest. "+
+                "\n CLOMP,CLOMP,CLOMP... You hear something walking in your direction." +
+                "\n Its a wild beast!"+
+                "\n You fight the beast and take some damage." +
+                "\n With the sword, you beat the beast, made a fire,ate meat to recover." +
+                "\n You continue your journey to the Mystical Mountains of Galacia");
 
-        game.nextPosition1 = "The Armoury";
-        game.nextPosition2 = "Healing Tent";
-        game.nextPosition3 = "The Food Store";
-        game.nextPosition4 = "The Corrupted dungeons";
+        gui.selection1.setText("Go to: Mystical Mountains");
+        gui.selection2.setText("Go to: The village");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "MysticalMountains";
+        game.nextPosition2 = "VillageHome";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
     }
 
-    public void MysticalMountains(){}
-    public void DeadMansSwamp(){}
+    public void MysticalMountains(){
+        gui.mainTextArea.setText("You reach the Mystical Mountains of Galacia. You notice a cave and head to wards it."+
+                "\n At the entrance of the cage you notice a bag with something shiny peaking through."+
+                "\n You..");
+
+        gui.selection1.setText("Open the bag");
+        gui.selection2.setText("Go in the Cave");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "TreasureBag";
+        game.nextPosition2 = "MountainCave";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
+    public void TreasureBag(){
+        gui.mainTextArea.setText("You open the bag and find a magical silver dagger"+
+                "\n The dagger is added to you weapons inventory"+
+                "\n You.." );
+
+        gui.selection1.setText("Go in the Cave");
+        gui.selection2.setText(" ");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "MountainCave";
+        game.nextPosition2 = " ";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
+
+    public void MountainCave(){
+        gui.mainTextArea.setText("You enter the cave and see your brother tied up."+
+                "\n To get to your brother, you need to fight the bandits that are keeping him hostage."+
+                "\n You...");
+
+        gui.selection1.setText("Fight Bandits");
+        gui.selection2.setText(" ");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "BanditFight";
+        game.nextPosition2 = " ";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
+
+    public void BanditFight(){
+        gui.mainTextArea.setText("You fight the bandits, loss some heath and win" +
+                "\n You free your 1st brother. And get information on where your next brother is."+
+                "\n You will find your 2nd brother in Dead Mans Swamp");
+
+        gui.selection1.setText("Go to: Dead Mans Swamp");
+        gui.selection2.setText("Go to: Village");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "DeadMansSwamp";
+        game.nextPosition2 = "villageHome";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
+
+
+    public void DeadMansSwamp(){
+        gui.mainTextArea.setText("You travel along the muddy road of the swamp." +
+                "\n It's getting dark and cold. You will have to find shelter soon inorder to be safe."+
+                "\n You notice an old cottage with a with a warm fire lit inside." );
+
+        gui.selection1.setText("Enter the Cottage");
+        gui.selection2.setText(" ");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "SwampCottage";
+        game.nextPosition2 = " ";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
+    public void SwampCottage(){
+        gui.mainTextArea.setText("Inside the Cottage is The Swamp Witch and your 2nd brother" +
+                "\n Inorder to free your 2nd brother, you need to fight the Witch with a magical object"+
+                "\n You.." );
+
+        gui.selection1.setText("Fight The Witch");
+        gui.selection2.setText(" ");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "WitchFight";
+        game.nextPosition2 = " ";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
+    public void WitchFight(){
+        gui.mainTextArea.setText("You fight The Swamp Witch with the magical dagger and win" +
+                "\n You free your2nd brother. You notice a map with a location marked. The location of your 3rd brother."+
+                "\n King Bear Boris's Ice Tower is where he is held" );
+
+        gui.selection1.setText("Go to: The Ice Tower");
+        gui.selection2.setText("Go to: Village");
+        gui.selection3.setText(" ");
+        gui.selection4.setText(" ");
+
+        game.nextPosition1 = "IceTower";
+        game.nextPosition2 = "villageHome";
+        game.nextPosition3 = " ";
+        game.nextPosition4 = " ";
+    }
     public void IceTower(){}
     public void SaharaDesert(){}
     public void ForgottenVolcano(){}
     public void LordVCastle(){}
 
 }
-*/
