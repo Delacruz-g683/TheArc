@@ -21,12 +21,13 @@ public class AzureGame {
             String azureSelection = event.getActionCommand();
 
             switch (azureSelection) {
-          /*      case "Game": vm.toStorySelection();
+     /* case "Game": vm.toStorySelection();
                     break;
                 case "Story1":cc
                     break;
                 case "Story2":
                     break;*/
+
 
                 case "Azure": azure.homeTownAzure();
                     break;

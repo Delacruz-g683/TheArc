@@ -2,13 +2,14 @@ package Game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class gameSelectionScreen {
+public class gameSelectionScreen implements ActionListener {
     JFrame gameSelectionScreen;
     JPanel storyTitlePanel,storyButtonPanel;
     JLabel storyTitleLabel;
     JButton storySelection1,storySelection2,storySelection3;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font gameFont = new Font("Times New Roman", Font.PLAIN, 26);
 
     public gameSelectionScreen(){
@@ -16,9 +17,9 @@ public class gameSelectionScreen {
         gameSelectionScreen.setSize(800, 600);
         storyButtonPanel= new JPanel();
         storyTitleLabel = new JLabel("PLEASE SELECT A STORY:");
-        storySelection1 = new JButton("Journey Through Celestia");
-        storySelection2 = new JButton("The Scarlet Heroin");
-        storySelection3 = new JButton("Lutho and Siphiwe's story");
+        storySelection1 = new JButton("JOURNEY THROUGH CELESTIA");
+        storySelection2 = new JButton("THE SCARLET HEROIN");
+        storySelection3 = new JButton("AZURE");
     }
 
     public void setGameSelectionScreenGUI(){
@@ -53,6 +54,10 @@ public class gameSelectionScreen {
         storySelection3.setFocusPainted(false);
         storyButtonPanel.add(storySelection3);
 
+        storySelection1.addActionListener(this);
+        storySelection2.addActionListener(this);
+        storySelection3.addActionListener(this);
+
         gameSelectionScreen.add(storyTitlePanel);
         gameSelectionScreen.add(storyButtonPanel);
 
@@ -60,11 +65,25 @@ public class gameSelectionScreen {
         gameSelectionScreen.getContentPane().setBackground(Color.black);
         gameSelectionScreen.setLayout(null);
         gameSelectionScreen.setVisible(true);
-
     }
 
-    public static void main(String[] args)
-    {
-        new gameSelectionScreen().setGameSelectionScreenGUI();
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("JOURNEY THROUGH CELESTIA")) {
+
+            new JourneyThroughCelestiaGame();
+            gameSelectionScreen.setVisible(false);
+
+        } else if (e.getActionCommand().equals("THE SCARLET HEROIN")) {
+
+            new TheScarletHeroinGame();
+            gameSelectionScreen.setVisible(false);
+
+        } else if (e.getActionCommand().equals("AZURE")) {
+
+            new AzureGame();
+            gameSelectionScreen.setVisible(false);
+
+        }
     }
 }

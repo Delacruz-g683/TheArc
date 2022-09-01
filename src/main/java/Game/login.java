@@ -1,9 +1,13 @@
 package Game;
 
+import DbConnection.dbGenerator;
+import com.mysql.cj.xdevapi.SqlStatement;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class login implements ActionListener {
     private JFrame frame;
@@ -78,7 +82,7 @@ cmbLbl = new JLabel("Select user:");
         btnExit.addActionListener(this);
 
         frame.setPreferredSize(new Dimension(800, 600));
-frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -87,45 +91,56 @@ frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("CREATE ACCOUNT")) {
-
-            createAccountGui createaccountgui = new createAccountGui();
-            createaccountgui.setCreateAccountGui();
-
-            }
- /*if (e.getActionCommand().equals("Login")) {
+      if (e.getActionCommand().equals("LOGIN")) {
 
             String username = usernameTxt.getText();
             String password = passwordTxt.getText();
 
             if (username.equals("") || password.equals("")) {
-                JOptionPane.showMessageDialog(centerPanel, "Please enter user details ", "Error", 1);
-            } else {
-                User user = new User(username,password);
+                JOptionPane.showMessageDialog(panelCenter, "Please enter user details", "Error", 1);
+            } else if (username.equals(username) && password.equals(password)) {
+                try {
 
-                if (options.equalsIgnoreCase("Admin") && clientUser.getOptions().equals("Admin") && clientUser.getIsActive().equals("Yes")) {
+                    final Connection con = dbGenerator.DBConnection();
+                    //String sqlString = "SELECT * FROM USER WHERE USERNAME = " + username + "AND PASSWORD = " + password; //Original
+                    String sqlString = "SELECT * FROM USER WHERE USERNAME = '" + username + " ' " + "AND PASSWORD = ' " + password + " ' "; //Other one
+                    JOptionPane.showMessageDialog(null,"I have read the sql string");
 
-                    AdminGUI admingui = new AdminGUI();
-                    admingui.setGui();
+                    ResultSet rs;
+                    Statement Stmt = con.createStatement();
+                    rs = Stmt.executeQuery(sqlString);
+
+                    if (rs != null)
+                    {
+                        while (rs.next())
+                        {
+
+                        }
+                    }
+                    new gameScreen().setGameScreenGUI();
+                    frame.setVisible(false);
+
+
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+
                 }
-                if (options.equalsIgnoreCase("Agent") && clientUser.getOptions().equals("Agent") && clientUser.getIsActive().equals("Yes")) {
+            } else if (!username.equals(username) || password.equals(password)) {
 
-                    AgentGUI ag = new AgentGUI();
-                    ag.setGUI();
+                JOptionPane.showMessageDialog(panelCenter, "The username or password does not match", "Error", 1);
 
-                }else if (!clientUser.getIsActive().equals("Yes")){
-                    JOptionPane.showMessageDialog(centerPanel, "User is no longer active", "Error", 1);
-                }
+            }  else if (e.getActionCommand().equals("CREATE ACCOUNT")) {
+
+              createAccountGui createaccountgui = new createAccountGui();
+              createaccountgui.setCreateAccountGui();
+
+              if(username.isEmpty() || password.isEmpty())
+              {
+                  
+              }
+          } else if (e.getActionCommand().equals("EXIT")) {
+                System.exit(0);
             }
-
-        } else if (e.getActionCommand().equals("Exit")) {
-            System.exit(0);
         }
-*/
-    }
-
-    public static void main(String[] args)
-    {
-        new login().setLoginGUI();
     }
 }

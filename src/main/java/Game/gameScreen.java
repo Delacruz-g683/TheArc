@@ -2,9 +2,10 @@ package Game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class gameScreen
-{
+public class gameScreen implements ActionListener {
     JFrame gameScreen;
     JPanel gameTitlePanel, startButtonPanel, loadButtonPanel;
     JLabel gameTitleLabel;
@@ -12,7 +13,7 @@ public class gameScreen
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font gameFont = new Font("Times New Roman", Font.PLAIN, 26);
 
-    public gameScreen(){
+    public gameScreen() {
         gameScreen = new JFrame();
         gameScreen.setSize(800, 600);
         gameTitlePanel = new JPanel();
@@ -23,7 +24,7 @@ public class gameScreen
         loadGameButton = new JButton("LOAD GAME");
     }
 
-    public void setGameScreenGUI(){
+    public void setGameScreenGUI() {
 
         gameTitlePanel = new JPanel();
         gameTitlePanel.setBounds(100, 100, 600, 500);
@@ -50,6 +51,9 @@ public class gameScreen
         loadGameButton.setFocusPainted(false);
         loadButtonPanel.add(loadGameButton);
 
+        newGameButton.addActionListener(this);
+        loadGameButton.addActionListener(this);
+
         gameScreen.add(gameTitlePanel);
         gameScreen.add(startButtonPanel);
         gameScreen.add(loadButtonPanel);
@@ -61,9 +65,16 @@ public class gameScreen
 
     }
 
-    public static void main(String[] args)
-    {
-        new gameScreen().setGameScreenGUI();
-    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("NEW GAME")) {
 
+            new gameSelectionScreen().setGameSelectionScreenGUI();
+            gameScreen.setVisible(false);
+
+        } else if (e.getActionCommand().equals("LOAD GAME")) {
+
+        }
+
+    }
 }
