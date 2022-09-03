@@ -1,0 +1,36 @@
+CREATE DATABASE `triArch`;
+
+CREATE TABLE `user` (
+	`user_id` INT NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(45) NOT NULL,
+	`password` VARCHAR(45),
+	PRIMARY KEY (`user_id`)
+);
+
+
+CREATE TABLE `thescarletheroin` (
+	`hp` VARCHAR(45) NOT NULL,
+	`gold` VARCHAR(200) NOT NULL,
+	`game_id` INT(100) NOT NULL AUTO_INCREMENT,
+	`current_weapon_id` INT NOT NULL,
+	`current_position_id` INT,
+	PRIMARY KEY (`game_id`)
+);
+
+CREATE TABLE `thejourneytocelestia` (
+	`hp` VARCHAR(45) NOT NULL,
+	`gold` VARCHAR(200) NOT NULL,
+	`game_id` INT(100) NOT NULL AUTO_INCREMENT,
+	`current_weapon_id` INT NOT NULL,
+	`current_position_id` INT NOT NULL,
+	PRIMARY KEY (`game_id`)
+);
+
+CREATE TABLE `azure` (
+	`hp` VARCHAR(45) NOT NULL,
+	`gold` VARCHAR(200) NOT NULL,
+	`game_id` INT(100) NOT NULL AUTO_INCREMENT,
+	`current_weapon_id` INT NOT NULL,
+	`current_position_id` INT NOT NULL,
+	PRIMARY KEY (`game_id`)
+);
